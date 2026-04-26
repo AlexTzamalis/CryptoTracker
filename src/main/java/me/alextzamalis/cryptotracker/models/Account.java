@@ -1,5 +1,6 @@
 package me.alextzamalis.cryptotracker.models;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**
@@ -32,11 +33,11 @@ public abstract class Account {
      * @param role
      */
     protected Account(String id, String username, String passwordHash, String displayName, AccountRole role) {
-        this.id = id;
-        this.username = username;
-        this.passwordHash = passwordHash;
-        this.displayName = displayName;
-        this.role = role;
+        this.id = requireText(id, "id");
+        this.username = requireText(username, "username");
+        this.passwordHash = requireText(passwordHash, "passwordHash");
+        this.displayName = requireText(displayName, "displayName");
+        this.role = Objects.requireNonNull(role, "role");
     }
 
     /**
@@ -68,7 +69,7 @@ public abstract class Account {
      * @param username the new username
      */
     public void setUsername(String username) {
-        this.username = username;
+        this.username = requireText(username, "username");
     }
 
     /**
@@ -84,7 +85,7 @@ public abstract class Account {
      * @param passwordHash the new password hasgh
      */
     public void setPasswordHash(String passwordHash) {
-        this.passwordHash  = passwordHash;
+        this.passwordHash  = requireText(passwordHash, "passwordHash");
     }
 
     /**
@@ -100,7 +101,7 @@ public abstract class Account {
      * @param displayName the new display name
      */
     public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+        this.displayName = requireText(displayName, "displayName");
     }
 
     /**
@@ -109,5 +110,18 @@ public abstract class Account {
      */
     public AccountRole getRole() {
         return role;
+    }
+
+    /**
+     * Validates text fields shared by model classes.
+     * @param value the candidate value
+     * @param fieldName the field name for error message
+     * @return the trimmed value
+     */
+    protected static String requireText(String value, String fieldName) {
+        if (value == null || value.isEmpty()) {
+            throw new IllegalArgumentException(fieldName + " cannot be blank");
+        }
+        return value.trim();
     }
 }
