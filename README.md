@@ -22,5 +22,18 @@ General documentation can be found under [documetation/info.md](https://github.c
 - Project Structure Docs: [documetation/quickstart.md](https://github.com/AlexTzamalis/CryptoTracker/blob/master/documentation/structure.md)
 - how data flows and the use of BTC/ETH "dummy" data. Docs: [documetation/quickstart.md](https://github.com/AlexTzamalis/CryptoTracker/blob/master/documentation/data.md)
 
+# Project Notice
+
+> This Project has been created via the [JetBrains Intelij Idea](https://www.jetbrains.com/idea/) Full Java IDE. This project has been tested for this IDE, and has not been tested in [Apache NetBeans IDE](https://netbeans.apache.org/front/main/index.html), [Eclipse IDE](https://eclipseide.org/) or [Visual Studio Code (VSC)](https://code.visualstudio.com/).
+>
+> The build is made in Windows OS with maven, and is not tested in any other OS, such us MacOS or any Linux Distro...
+>
+> Git and Github are heavily used for version control of this project repository.
+><p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=idea,maven,windows,git&perline=6" />
+  </a>
+</p>
+
 # License & Author
 This is the Intellectual Property of ***Alex Tzamalis*** and is released under the **MIT License**. See [LICENSE](https://github.com/AlexTzamalis/CryptoTracker/blob/master/LICENSE) for details.
